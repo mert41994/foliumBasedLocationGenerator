@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_e26e802eb9db5bc555c0049faa82302e {
+                #map_38bd89662d84540735b86ba2da884f9d {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -50,20 +50,54 @@
             </script>
 
         
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    
+                    <style>
+                        .foliumpopup {
+                            margin: auto;
+                        }
+                       .foliumpopup table{
+                            margin: auto;
+                        }
+                        .foliumpopup tr{
+                            text-align: left;
+                        }
+                        .foliumpopup th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_e26e802eb9db5bc555c0049faa82302e" ></div>
+<meta http-equiv="refresh" content="5">
+    
+            <div class="folium-map" id="map_38bd89662d84540735b86ba2da884f9d" ></div>
         
 </body>
 <script>
     
     
-            var map_e26e802eb9db5bc555c0049faa82302e = L.map(
-                "map_e26e802eb9db5bc555c0049faa82302e",
+            var map_38bd89662d84540735b86ba2da884f9d = L.map(
+                "map_38bd89662d84540735b86ba2da884f9d",
                 {
-                    center: [18.3453, -70.8382],
+                    center: [18.3453, 70.8382],
                     crs: L.CRS.EPSG3857,
                     ...{
   "zoom": 4,
@@ -78,7 +112,7 @@
 
         
     
-            var tile_layer_ec3c9087dd2bccacf7afb49fe0f69094 = L.tileLayer(
+            var tile_layer_b433303b3f0ed4a3ee0438925eab52fb = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -95,61 +129,101 @@
             );
         
     
-            tile_layer_ec3c9087dd2bccacf7afb49fe0f69094.addTo(map_e26e802eb9db5bc555c0049faa82302e);
+            tile_layer_b433303b3f0ed4a3ee0438925eab52fb.addTo(map_38bd89662d84540735b86ba2da884f9d);
         
     
-            var marker_bad1843441f2e55179550e1bf48d9d80 = L.marker(
-                [18.3453, -70.8382],
-                {
-}
-            ).addTo(map_e26e802eb9db5bc555c0049faa82302e);
-        
-    
-            var icon_f1f52d67bb23d4cf77b78e3ddebe3fec = L.AwesomeMarkers.icon(
-                {
-  "markerColor": "green",
-  "iconColor": "white",
-  "icon": "info-sign",
-  "prefix": "glyphicon",
-  "extraClasses": "fa-rotate-0",
-}
-            );
-        
-    
-        var popup_104c5435b0b14efbd6e45aecd8947378 = L.popup({
-  "maxWidth": "100%",
-});
 
-        
+        function geo_json_188706ad3d34de82451f5bb842174773_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_188706ad3d34de82451f5bb842174773 = L.geoJson(null, {
+                onEachFeature: geo_json_188706ad3d34de82451f5bb842174773_onEachFeature,
             
-                var html_26bcc16d2a0f1363572b3e177b68c788 = $(`<div id="html_26bcc16d2a0f1363572b3e177b68c788" style="width: 100.0%; height: 100.0%;">KPS IREM SULTAN MMSI: 636014808 IMO: 8222252</div>`)[0];
-                popup_104c5435b0b14efbd6e45aecd8947378.setContent(html_26bcc16d2a0f1363572b3e177b68c788);
+            ...{
+}
+        });
+
+        function geo_json_188706ad3d34de82451f5bb842174773_add (data) {
+            geo_json_188706ad3d34de82451f5bb842174773
+                .addData(data);
+        }
+            geo_json_188706ad3d34de82451f5bb842174773_add({"features": [{"geometry": {"coordinates": [70.8382, 18.3453], "type": "Point"}, "properties": {"course": 230, "imo": 8222252, "mmsi": 636014808, "nav_status": 5, "received": "2025-04-25T14:41:46Z", "speed": 0, "vessel_name": "KPS IREM SULTAN", "vtype": 3}, "type": "Feature"}], "type": "FeatureCollection"});
+        geo_json_188706ad3d34de82451f5bb842174773.setStyle(function(feature) {return feature.properties.style;});
+
+        
+    
+    geo_json_188706ad3d34de82451f5bb842174773.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["vessel_name", "mmsi", "imo"];
+    let aliases = ["vessel_name", "mmsi", "imo"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
             
-        
-
-        marker_bad1843441f2e55179550e1bf48d9d80.bindPopup(popup_104c5435b0b14efbd6e45aecd8947378)
-        ;
-
-        
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
     
-    
-            marker_bad1843441f2e55179550e1bf48d9d80.bindTooltip(
-                `<div>
-                     KPS IREM SULTAN
-                 </div>`,
-                {
+    return div
+    }
+    ,{
   "sticky": true,
-}
-            );
-        
+  "className": "foliumtooltip",
+});
+                     
     
-                marker_bad1843441f2e55179550e1bf48d9d80.setIcon(icon_f1f52d67bb23d4cf77b78e3ddebe3fec);
+    geo_json_188706ad3d34de82451f5bb842174773.bindPopup(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["vessel_name", "mmsi", "imo"];
+    let aliases = ["vessel_name", "mmsi", "imo"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
             
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
     
-            var circle_59186289e748b0333a59cddc98627df7 = L.circle(
-                [18.3453, -70.8382],
-                {"bubblingMouseEvents": true, "color": "#3388ff", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#3388ff", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
-            ).addTo(map_e26e802eb9db5bc555c0049faa82302e);
+    return div
+    }
+    ,{
+  "className": "foliumpopup",
+});
+                     
+    
+            geo_json_188706ad3d34de82451f5bb842174773.addTo(map_38bd89662d84540735b86ba2da884f9d);
         
 </script>
 </html>

@@ -1,0 +1,17 @@
+{
+    "status": "success",
+    "duration": "0.000500643",
+    "timestamp": "2025-06-04T11:34:46.336Z",
+    "data": {
+        "vessel_name": "KPS IREM SULTAN",
+        "mmsi": 636014808,
+        "imo": 8222252,
+        "vtype": 3,
+        "lat": 18.3453,
+        "lng": -70.8382,
+        "course": 230,
+        "speed": 0,
+        "nav_status": 5,
+        "received": "2025-04-25T14:41:46Z"
+    }
+}

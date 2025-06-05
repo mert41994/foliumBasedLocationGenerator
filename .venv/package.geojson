@@ -1,0 +1,41 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-70.8382, 18.3453]
+            },
+            "properties": {
+                "vessel_name": "KPS IREM SULTAN",
+                "mmsi": 636014808,
+                "imo": 8222252,
+                "vtype": 3,
+                "course": 230,
+                "speed": 0,
+                "nav_status": 5,
+                "received": "2025-04-25T14:41:46Z"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [40.3532, 25.3453]
+            },
+            "properties": {
+                "vessel_name": "KPS TEST SULTAN",
+                "mmsi": 636014808,
+                "imo": 8222252,
+                "vtype": 3,
+                "course": 230,
+                "speed": 0,
+                "nav_status": 5,
+                "received": "2025-04-25T14:41:46Z"
+            }
+        }
+    ]
+
+    
+}

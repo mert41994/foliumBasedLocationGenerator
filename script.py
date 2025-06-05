@@ -1,36 +1,63 @@
+import streamlit as st
 import json
-import os
 import folium
-from folium.plugins import MarkerCluster  # type: ignore
-import pandas as pd
-import numpy as np
+from streamlit_folium import st_folium
 
-with open('.venv/package.json', 'r', encoding='utf-8') as file:
-    package_data = json.load(file)
-    vessel_data = package_data.get("data", {})  # JSON içindeki "data" alanını çekiyoruz
+st.set_page_config(page_title="OnePowership Canlı Gemi Takibi", layout="wide")
 
-# JSON içindeki gemi bilgilerini alıyoruz
-lat = vessel_data.get("lat", 0)
-lng = vessel_data.get("lng", 0)
-vessel_name = vessel_data.get("vessel_name", "Bilinmiyor")
-mmsi = vessel_data.get("mmsi", "Bilinmiyor")
-imo = vessel_data.get("imo", "Bilinmiyor")
+# Streamlit'in ekstra boşluklarını kaldırmak için stil ekle
+st.markdown(
+    """
+    <style>
+        .main .block-container {
+            padding: 0 !important;
+            margin: 0 !important;
+            max-width: 100vw;
+        }
+        .stApp {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        iframe {
+            height: 98vh !important;
+            width: 100vw !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-# Haritanın başlangıç koordinatını, geminin konumunu baz alarak ayarlayabilir veya sabit belirleyebilirsiniz.
+# Başlık
+st.markdown('<h1 style="margin-bottom:0;">OnePowership Canlı Gemi Takibi</h1>', unsafe_allow_html=True)
+
+# GeoJSON dosyasını oku
+with open('.venv/package.geojson', 'r', encoding='utf-8') as f:
+    geojson_data = json.load(f)
+
+# İlk feature'ı al
+feature = geojson_data['features'][0]
+props = feature['properties']
+coords = feature['geometry']['coordinates']
+
+lat = coords[1]
+lng = coords[0]
+
 coordination = [lat, lng]
 my_map = folium.Map(location=coordination, zoom_start=4)
 
-# Gemi konumuna marker ekliyoruz
-vessel_coord = [lat, lng]
-folium.Marker(
-    vessel_coord,
-    popup=f'{vessel_name}\nMMSI: {mmsi}\nIMO: {imo}',
-    tooltip=vessel_name,
-    icon=folium.Icon(color="green")
+folium.GeoJson(
+    geojson_data,
+    name="Vessel",
+    tooltip=folium.GeoJsonTooltip(fields=["vessel_name", "mmsi", "imo"]),
+    popup=folium.GeoJsonPopup(fields=["vessel_name", "mmsi", "imo"])
 ).add_to(my_map)
 
-# Gemi konumunu gösterecek küçük bir çember ekliyoruz
-folium.Circle(vessel_coord, radius=10).add_to(my_map)
+# Folium haritasını tam ekran gösterirken yükleniyor animasyonu ekle
+with st.spinner("Harita yükleniyor, lütfen bekleyin..."):
+    st_folium(my_map, width=1920, height=980)
 
-my_map.save('map.html')
-print("Harita başarıyla oluşturuldu ve 'map.html' olarak kaydedildi.")
+st.write("Vessel Name:", props.get("vessel_name"))
+st.write("MMSI:", props.get("mmsi"))
+st.write("IMO:", props.get("imo"))
+st.write("Son güncelleme:", props.get("received"))
+
