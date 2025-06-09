@@ -13,7 +13,7 @@
             "course": 230,
             "speed": 0,
             "nav_status": 5,
-            "received": "2025-04-25T14:41:46Z"
+            "received": "2025-05-25T14:41:46Z"
         },
         {
             "vessel_name": "KPS ORHAN BEY",
@@ -21,7 +21,7 @@
             "imo": 8222253,
             "vtype": 3,
             "lat": 19.1234,
-            "lng": 71.5678,
+            "lng": 70.5678,
             "course": 120,
             "speed": 10,
             "nav_status": 1,
