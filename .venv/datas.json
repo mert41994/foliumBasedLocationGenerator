@@ -1,7 +1,7 @@
 {
     "status": "success",
-    "duration": "0.000829485",
-    "timestamp": "2025-06-11T16:39:24.299Z",
+    "duration": "0.019111860",
+    "timestamp": "2025-06-11T17:41:57.309Z",
     "data": [
         {
             "vessel_name": "MAERSK FIGHTER",
@@ -203,12 +203,12 @@
             "mmsi": 636017599,
             "imo": 9121845,
             "vtype": 3,
-            "lat": 14.67778,
-            "lng": -17.33044,
-            "course": 242,
-            "speed": 0,
+            "lat": 14.67787,
+            "lng": -17.3304,
+            "course": 246,
+            "speed": 0.2,
             "nav_status": 1,
-            "received": "2025-06-11T16:36:43Z",
+            "received": "2025-06-11T17:39:45Z",
             "fleet_ids": [
                 297096
             ]
@@ -233,12 +233,12 @@
             "mmsi": 636017601,
             "imo": 9034779,
             "vtype": 3,
-            "lat": 14.66992,
-            "lng": -17.31826,
-            "course": 255,
-            "speed": 0.1,
+            "lat": 14.66996,
+            "lng": -17.31827,
+            "course": 259,
+            "speed": 0.2,
             "nav_status": 1,
-            "received": "2025-06-11T16:01:09Z",
+            "received": "2025-06-11T17:40:08Z",
             "fleet_ids": [
                 297096
             ]
