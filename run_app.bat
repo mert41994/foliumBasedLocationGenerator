@@ -1,4 +1,4 @@
 @echo off
 cd /d %~dp0
-py -m streamlit run script.py
+python.exe streamlit run script.py
 pause
